@@ -1,6 +1,8 @@
-# Chrome Web Store Listing — Undock Engine
+# Chrome Web Store Listing — Undock Engine (Technical Draft)
 
-> Last Updated: 2026-09-04
+> Last Updated: 2026-09-05
+>
+> This document is a technical preparation checklist, not a final public listing. Do not submit until the real publisher identity, support contact, privacy-policy URL, and default-branch links are confirmed.
 
 ## Store Listing
 
@@ -8,35 +10,33 @@
 Undock Engine: Multi-Monitor Reading Pane
 
 **Short Description** [REQUIRED]
-Decouple multi-pane web applications across monitors. Suppresses Gmail's embedded reading pane and projects it into a window.
+Undock Gmail's reading pane into a separate window for a cleaner multi-monitor workflow.
 
 **Detailed Description** [REQUIRED]
-Undock Engine decouples multi-pane web apps across multi-monitor workstations, beginning with Gmail's Reading Pane.
+Undock Engine separates Gmail's Reading Pane into a second browser window so your inbox list can use the full width of the main window.
 
 By default, reading emails in Gmail's split-pane view compresses both your inbox list and email body onto a single screen. Undock Engine suppresses the embedded reading pane in your main browser tab and projects it into a persistent, synchronized secondary OS window.
 
 Key Features:
-- Seamless Multi-Monitor Workflow: View your full-width Gmail inbox on your primary display and open email threads on your secondary monitor.
-- Zero-Latency Synchronization: Instant (<5ms) DOM mirroring, scroll sync, and real-time thread updates powered by MutationObserver.
-- Style Parity: Complete cloning of fonts, colors, custom CSS variables, and Gmail dark mode themes without asset load delays.
-- Full Triage Hotkeys: Single-stroke triage shortcuts (j/k for next/previous, e/y for archive, # for delete, s for star, r for reply) routed seamlessly across windows.
-- Smart Input Protection: Automatically pauses hotkey interception when typing inside replies or search boxes to prevent collision.
-- Coordinate Memory: Automatically saves and restores your preferred window dimensions and monitor placement across sessions.
-- Delegated Actions: Archive, Delete, Star, Reply, and Snooze directly from the detached window.
-- Universal Adapter Architecture: Extensible core engine designed for future expansion to GitHub, Linear, Jira, and Zendesk.
+- Multi-monitor workflow: View the Gmail inbox list in the main window and the selected message in a separate window.
+- Synchronized view: The detached window follows the selected Gmail message and supported state changes.
+- Familiar Gmail interactions: Use the detached message view for normal reading and supported Gmail actions.
+- Input protection: Keyboard handling is limited while typing in search, reply, compose, and other editable fields.
+- Window memory: Your preferred detached-window size and position are saved locally.
+- Local processing: Email content is handled in the browser; the extension does not send it to an external service.
 
 How to Use:
 1. Open Gmail with Split Pane view enabled (Vertical or Horizontal split).
-2. Click the "Undock" button in the Gmail toolbar or press Ctrl+Shift+U (Cmd+Shift+U on Mac).
+2. Click the "Undock" button in the Gmail toolbar.
 3. The reading pane instantly pops out into your secondary window while the message list expands to 100% width.
-4. Triage emails using standard Gmail shortcuts (j, k, e, #, s, r) from either window.
+4. Read and use the supported Gmail controls from the detached window.
 5. Close the pop-out window or click "Re-dock" at any time to restore the embedded layout.
 
 Privacy & Security:
 Undock Engine operates 100% locally within your browser. It does not collect, track, or transmit any email contents, personal data, or usage metrics off your device.
 
 Support & Feedback:
-For questions, feature requests, or issue reports, visit our open repository or contact support.
+For questions, feature requests, or issue reports, use the GitHub repository and issue tracker listed below.
 
 **Category** [REQUIRED]
 Productivity
@@ -94,7 +94,7 @@ English
 ## Privacy Policy
 
 **Privacy Policy URL** [RECOMMENDED]
-https://github.com/undock-engine/privacy-policy
+https://github.com/gordonyfg/undock-engine/blob/main/PRIVACY.md
 
 ## Distribution
 
@@ -105,25 +105,35 @@ https://github.com/undock-engine/privacy-policy
 ## Developer Info
 
 **Publisher Name** [REQUIRED]
-Undock Engine Team
+TBD — use the legal/publisher identity associated with the Chrome Web Store account.
 
 **Contact Email** [REQUIRED]
-support@undockengine.dev
+TBD — configure a monitored support address before submission.
 
 **Support URL / Email** [RECOMMENDED]
-https://github.com/undock-engine/undock/issues
+https://github.com/gordonyfg/undock-engine/issues
 
 **Homepage URL** [RECOMMENDED]
-https://undockengine.dev
+https://github.com/gordonyfg/undock-engine
 
 ## Version History
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-09-04 | Initial MVP launch: Universal Undock Core Engine with Gmail Reading Pane Adapter | Draft |
+| 1.0.0 | 2026-09-05 | Initial MVP: Gmail Reading Pane undock workflow | Draft |
 
 ## Review Notes
 
 ### Known Issues / Limitations
-- Requires Gmail to be in split reading pane mode (either vertical or horizontal split). In non-split mode, email messages open in full view natively.
-- Operates on mail.google.com exclusively; additional adapters (GitHub, Linear, Jira) planned for subsequent releases.
+- Operates on mail.google.com exclusively in this release.
+- Requires Gmail's split reading pane mode (vertical or horizontal) for the undock control to appear.
+
+## Submission blockers
+
+Resolve these items in the Chrome Web Store dashboard before publishing:
+
+1. Replace the publisher name and contact email with real, monitored values.
+2. Confirm that the `main` branch contains `PRIVACY.md`; otherwise use the exact public branch URL temporarily.
+3. Create at least one real screenshot showing the extension in Gmail. Promotional tiles are optional for the first release.
+4. Confirm the final store description matches the behavior tested in the release candidate.
+5. Upload the ZIP generated by `npm run package`; do not upload the repository root.

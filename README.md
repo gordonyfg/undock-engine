@@ -280,9 +280,10 @@ code—not for a vanity target such as 100%.
 
 #### What CI reports today
 
-The current CI workflow reports pass/fail for typecheck, tests, and build, and
-uploads the generated `dist/` folder as an artifact. It does not yet publish
-coverage, browser screenshots, or performance benchmarks. That is intentional:
+The current CI workflow reports pass/fail for typecheck, tests, and build. It
+uploads both the generated `dist/` folder and the Chrome Web Store ZIP as
+artifacts. It does not yet publish coverage, browser screenshots, or
+performance benchmarks. That is intentional:
 for this solo project, a reliable small suite is more valuable than several
 reporting systems nobody reviews.
 
@@ -394,7 +395,7 @@ npm run build
 
 That is a useful future improvement because it catches “works on my machine” problems. Complex dashboards, nightly benchmarks, multiple report formats, and automatic store publishing are unnecessary at this stage.
 
-The repository now has a basic CI workflow at `.github/workflows/ci.yml`. It runs typecheck, tests, and build, then uploads `dist/` as an artifact. Browser E2E testing and store publishing remain manual.
+The repository now has a basic CI workflow at `.github/workflows/ci.yml`. It runs typecheck, tests, build, and packaging, then uploads both `dist/` and the store ZIP as artifacts. Browser E2E testing and store publishing remain manual.
 
 ## 7. Debugging guide
 
