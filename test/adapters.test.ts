@@ -130,15 +130,24 @@ describe('GmailAdapter (FR-05, FR-07)', () => {
     expect(injectedCss).not.toContain('[role="region"][aria-label*="Message" i]');
     expect(injectedCss).toContain('[role="region"][aria-label*="reading" i]');
     expect(injectedCss).toContain('display: table-row-group !important');
-    expect(getComputedStyle(grid).display).toBe('table');
+    expect(injectedCss).toContain('height: 20px !important');
+    expect(injectedCss).toContain('display: flex !important');
+    expect(injectedCss).toContain('.Nr:has(> .Nu.tf .undock-expanded-list) > .Nt + .Nu');
+    expect(getComputedStyle(grid).display).toBe('block');
     expect(getComputedStyle(grid).tableLayout).toBe('fixed');
-    expect(getComputedStyle(senderCell).width).toBe('180px');
+    expect(getComputedStyle(senderCell).width).toBe('212px');
     expect(getComputedStyle(actionCell).position).toBe('sticky');
     expect(getComputedStyle(actionCell).right).toBe('0px');
     expect(getComputedStyle(actionCell).width).toBe('72px');
-    expect(getComputedStyle(quickActionCell).display).toBe('table-cell');
+    expect(getComputedStyle(quickActionCell).display).toBe('flex');
     expect(getComputedStyle(quickActionCell).position).toBe('sticky');
     expect(getComputedStyle(quickActionCell).width).toBe('152px');
+    // Primary and category tabs can use different Gmail colgroup class names.
+    // Keep the current Primary mapping from collapsing the subject column or
+    // assigning the action width to the date column.
+    expect(injectedCss).toContain('col.null { width: auto !important; }');
+    expect(injectedCss).toContain('col.xX { width: 72px !important; }');
+    expect(injectedCss).toContain('col.bq4 { width: 152px !important; }');
     expect(injectedCss).toContain('td.bq4 > ul');
   });
 

@@ -45,6 +45,20 @@ export class GmailAdapter implements SiteAdapter {
         flex: 1 1 auto !important;
         overflow-x: hidden !important;
       }
+      /* Gmail rebuilds the category panel when switching tabs. Keep the
+         detached layout applied to the new split-pane nodes as well. */
+      body.undock-engine-active [role="main"] .Nr:has(> .Nu.tf .undock-expanded-list) > .Nu.tf {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+      }
+      body.undock-engine-active [role="main"] .Nr:has(> .Nu.tf .undock-expanded-list) > .Nt + .Nu {
+        display: none !important;
+        width: 0 !important;
+        min-width: 0 !important;
+        flex: 0 0 0 !important;
+      }
       body.undock-engine-active table.undock-expanded-list[role="grid"],
       body.undock-engine-active .undock-expanded-list table[role="grid"] {
         display: table !important;
@@ -68,12 +82,79 @@ export class GmailAdapter implements SiteAdapter {
         display: table-cell !important;
         min-width: 0;
       }
+      /* Keep category tabs visually consistent with Gmail's compact rows. */
+      body.undock-engine-active table.undock-expanded-list[role="grid"] > tbody > tr,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] > tbody > tr {
+        height: 20px !important;
+        min-height: 20px !important;
+        max-height: 20px !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] > tbody > tr > td,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] > tbody > tr > td {
+        height: 20px !important;
+        min-height: 20px !important;
+        max-height: 20px !important;
+        overflow: hidden !important;
+        vertical-align: middle !important;
+      }
+      /* Match Gmail's native compact category layout. Primary can otherwise
+         retain a table-row minimum of 40px while category tabs use flex rows. */
+      body.undock-engine-active table.undock-expanded-list[role="grid"],
+      body.undock-engine-active .undock-expanded-list table[role="grid"] {
+        display: block !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] > tbody,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] > tbody {
+        display: block !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] > tbody > tr,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] > tbody > tr {
+        display: flex !important;
+        align-items: center !important;
+        height: 20px !important;
+        min-height: 20px !important;
+        max-height: none !important;
+        padding: 4px 0 !important;
+        box-sizing: content-box !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] > tbody > tr > td,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] > tbody > tr > td {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        height: 20px !important;
+        min-height: 20px !important;
+        max-height: 20px !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] td.yX,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] td.yX {
+        flex-basis: 212px !important;
+        width: 212px !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] td.xY.a4W,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] td.xY.a4W {
+        flex: 1 1 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] td.xW,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] td.xW {
+        flex-basis: 72px !important;
+        width: 72px !important;
+      }
+      body.undock-engine-active table.undock-expanded-list[role="grid"] td.bq4,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] td.bq4 {
+        display: flex !important;
+        flex-basis: 152px !important;
+        width: 152px !important;
+      }
       /* Give the sender column room while leaving the subject column flexible. */
       body.undock-engine-active table.undock-expanded-list[role="grid"] td.yX,
       body.undock-engine-active .undock-expanded-list table[role="grid"] td.yX {
-        width: 180px !important;
-        min-width: 180px !important;
-        max-width: 180px !important;
+        width: 212px !important;
+        min-width: 212px !important;
+        max-width: 212px !important;
       }
       body.undock-engine-active table.undock-expanded-list[role="grid"] td.xY.a4W,
       body.undock-engine-active .undock-expanded-list table[role="grid"] td.xY.a4W,
@@ -96,17 +177,17 @@ export class GmailAdapter implements SiteAdapter {
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.yF,
       body.undock-engine-active .undock-expanded-list table[role="grid"] col.yF { width: 212px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.yY,
-      body.undock-engine-active .undock-expanded-list table[role="grid"] col.yY { width: auto !important; }
+      body.undock-engine-active .undock-expanded-list table[role="grid"] col.yY { width: 212px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.null,
-      body.undock-engine-active .undock-expanded-list table[role="grid"] col.null { width: 0 !important; }
+      body.undock-engine-active .undock-expanded-list table[role="grid"] col.null { width: auto !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.eSDBXb,
       body.undock-engine-active .undock-expanded-list table[role="grid"] col.eSDBXb { width: 28px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.yg,
       body.undock-engine-active .undock-expanded-list table[role="grid"] col.yg { width: 72px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.xX,
-      body.undock-engine-active .undock-expanded-list table[role="grid"] col.xX { width: 152px !important; }
+      body.undock-engine-active .undock-expanded-list table[role="grid"] col.xX { width: 72px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.bq4,
-      body.undock-engine-active .undock-expanded-list table[role="grid"] col.bq4 { width: 0 !important; }
+      body.undock-engine-active .undock-expanded-list table[role="grid"] col.bq4 { width: 152px !important; }
       body.undock-engine-active table.undock-expanded-list[role="grid"] col.amZ,
       body.undock-engine-active .undock-expanded-list table[role="grid"] col.amZ { width: 0 !important; }
       /* Keep Gmail's date and hover-action cells visible at the viewport edge. */
@@ -133,6 +214,11 @@ export class GmailAdapter implements SiteAdapter {
       }
       body.undock-engine-active table.undock-expanded-list[role="grid"] td.bq4 > ul,
       body.undock-engine-active .undock-expanded-list table[role="grid"] td.bq4 > ul {
+        display: flex !important;
+      }
+      /* Override the sticky action-cell rule above when using flex rows. */
+      body.undock-engine-active table.undock-expanded-list[role="grid"] td.bq4,
+      body.undock-engine-active .undock-expanded-list table[role="grid"] td.bq4 {
         display: flex !important;
       }
       .undock-cloned-detail {

@@ -1,6 +1,6 @@
 {
   "name": "undock-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal multi-pane decoupling engine for web apps (Gmail Flagship v1.0)",
   "type": "module",
   "scripts": {
