@@ -52,10 +52,10 @@ English
 | Asset | Dimensions | Status | Filename |
 |-------|-----------|--------|----------|
 | Store Icon [REQUIRED] | 128×128 PNG | ✅ Ready | icons/icon-128.png |
-| Screenshot 1 [REQUIRED] | 1280×800 or 640×400 | ⬜ Not created | promo/screenshot-1.png |
-| Screenshot 2 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ Not created | promo/screenshot-2.png |
-| Small Promo Tile [RECOMMENDED] | 440×280 | ⬜ Not created | promo/promo-tile-440.png |
-| Marquee Promo Tile | 1400×560 | ⬜ Not created | promo/marquee-1400.png |
+| Screenshot 1 [REQUIRED] | 1280×800 or 640×400 | ✅ Ready | promo/screenshot-1.png |
+| Screenshot 2 [RECOMMENDED] | 1280×800 or 640×400 | ✅ Ready | promo/screenshot-2.png |
+| Small Promo Tile [RECOMMENDED] | 440×280 | ✅ Ready | promo/promo-tile-440.png |
+| Marquee Promo Tile | 1400×560 | ⬜ Optional | promo/marquee-1400.png |
 
 ### Screenshot Notes
 - Screenshot 1: Dual-monitor workstation view showing full-width Gmail inbox list on Display 1 and detached email detail thread on Display 2.
@@ -105,10 +105,10 @@ https://github.com/gordonyfg/undock-engine/blob/main/PRIVACY.md
 ## Developer Info
 
 **Publisher Name** [REQUIRED]
-TBD — use the legal/publisher identity associated with the Chrome Web Store account.
+Gordon Yeung
 
 **Contact Email** [REQUIRED]
-TBD — configure a monitored support address before submission.
+gordon.yeung.toa@gmail.com
 
 **Support URL / Email** [RECOMMENDED]
 https://github.com/gordonyfg/undock-engine/issues
